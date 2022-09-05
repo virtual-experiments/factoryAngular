@@ -1,0 +1,16 @@
+
+<p>Pilot plant</p>
+<div style="width: 50%;height:40%;">
+    <img style="object-fit: fill;width: 100%;height:100%" src="../assets/pilot.gif">
+</div>
+<div style="font-size: x-small;background-color: sandybrown;width: fit-content;padding: 3%;margin-top: 3%;">
+    <p>Run nr= {{this.RunNr}}</p>
+    <p>Run nr in same tank= {{this.RunNrSameTank}}</p>
+    <p>Tank nr= {{this.TankNr}}</p>
+    <p>Temperature= {{this.Temperature}}</p>
+    <p>Time= {{this.Time}}</p>
+    <p>Concentration= {{this.Concentration}}</p>
+    <p>Response= {{this.Response}}</p>
+    <p style="color: red;" [hidden]="!experimentRunning">Experiment Running</p>
+    <button routerLink="/expadder" style="display: block;" [disabled]="experimentRunning">Experiment</button>
+</div>

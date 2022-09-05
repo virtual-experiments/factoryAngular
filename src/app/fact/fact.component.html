@@ -1,0 +1,13 @@
+
+<p style="font-size: medium;">Production plant</p>
+<div style="width: 50%;height:30%;">
+    <img style="object-fit: fill;width: 100%;height:100%" src="../assets/factory.gif">
+</div>
+<div style="font-size: x-small;background-color: sandybrown;width: fit-content;padding: 3%;margin-top: 3%;">
+    <p>Tempreture= {{this.getTemp()}}</p>
+    <p>Time= {{this.getTime()}}</p>
+    <p>Concentration= {{this.getConc()}}</p>
+    <p>Response= {{this.getResp()}}</p>
+    <p [hidden]="!delayPeriod" style="margin-top: 5%;">Wait until week {{this.getDelayWeek()}}</p>
+    <button routerLink="/configchange" style="display: block;font-size: small;">Change setting</button>
+</div>

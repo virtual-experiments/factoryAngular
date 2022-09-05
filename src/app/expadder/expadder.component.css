@@ -1,0 +1,36 @@
+.mainframe{
+    background-color: aquamarine;
+    width: fit-content;
+    margin-left: 2%;
+    margin-top: 3%;
+    border-width: 1px;
+    border-style: solid;
+    height: 90%;
+    font-size: small;
+    padding: 1%;
+}
+
+.slider{
+    margin-left: 5%;
+}
+
+.header{
+    display: inline-block;
+    margin: 0%;
+}
+
+.value{
+    background-color: white;
+    width: fit-content;
+    display: inline-block;
+    margin: 0%;
+    padding: 0.5%;
+}
+
+.numpicker{
+    display: inline;
+}
+
+/**
+TO DO: changing size of the value class. 
+**/

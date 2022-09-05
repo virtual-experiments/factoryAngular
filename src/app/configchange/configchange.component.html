@@ -1,0 +1,40 @@
+<div  class= "mainframe">
+    <label>New Tank </label>
+    <select #newTank name="newTank">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select>
+    <div style="font-size: x-small;margin-top: 1%;" >
+        <div>
+            <p class="header"> Temperature: </p>
+            <p class="value">{{this.Temp}}</p>
+            <div class="numpicker" >
+                <label class="slider">{{MinTemp}}</label>
+                <mat-slider  thumbLabel [min]="MinTemp" [max]="MaxTemp" [step]="1" [(value)]="Temp"></mat-slider>
+                <label>{{MaxTemp}}</label>
+            </div>
+        </div>
+        <div>
+            <p class="header"> Time: </p>
+            <p class="value">{{this.Time}}</p>
+            <div class="numpicker">
+                <label class="slider">{{MinTime}}</label>
+                <mat-slider thumbLabel [min]="MinTime" [max]="MaxTime" [step]="1" [(value)]="Time"></mat-slider>
+                <label>{{MaxTime}}</label>
+            </div>
+        </div>
+        <div>
+            <p class="header"> Concentration: </p>
+            <p class="value">{{this.Conc}}</p>
+            <div class="numpicker">
+                <label class="slider">{{MinConc}}</label>
+                <mat-slider style="color: blue;" thumbLabel [min]="MinConc" [max]="MaxConc" [step]="0.0008" [(value)]="Conc"></mat-slider>
+                <label>{{MaxConc}}</label>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 2%;">
+        <button routerLink="/main">Cancel</button>
+        <button routerLink="/main" (click)="changeSetting()">OK</button>
+    </div>
+</div>

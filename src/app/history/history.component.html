@@ -1,0 +1,20 @@
+<table style="overflow: scroll;font-size:small;margin: 2%;border-spacing: 4px;">
+    <tr>
+        <td>Run Nr</td>
+        <td>Tank Nr</td>
+        <td>Run Nr in tank</td>
+        <td>Temperature</td>
+        <td>Time</td>
+        <td>Concentration</td>
+        <td>Response</td>
+    </tr>
+    <tr *ngFor="let t of table">
+        <td>{{t.runnr}}</td>
+        <td>{{t.tanknr}}</td>
+        <td>{{t.runnrtank}}</td>
+        <td>{{t.temp}}</td>
+        <td>{{t.time}}</td>
+        <td>{{t.conc}}</td>
+        <td>{{t.resp}}</td>
+    </tr>
+</table>

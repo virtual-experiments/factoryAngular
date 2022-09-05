@@ -1,0 +1,15 @@
+<div class="toolbar" style="height: fit-content;">
+  <button mat-button [matMenuTriggerFor]="aboveMenu">File</button>
+  <mat-menu #aboveMenu="matMenu" yPosition="above">
+    <button mat-menu-item>Exit</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="belowMenu">Help</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item>About</button>
+    <button mat-menu-item>Applet Help</button>
+  </mat-menu>
+
+</div>
+
+<router-outlet></router-outlet>
