@@ -9,5 +9,5 @@
     <p>Concentration= {{this.getConc()}}</p>
     <p>Response= {{this.getResp()}}</p>
     <p [hidden]="!delayPeriod" style="margin-top: 5%;">Wait until week {{this.getDelayWeek()}}</p>
-    <button routerLink="/configchange" style="display: block;font-size: small;">Change setting</button>
+    <button routerLink="/configchange" style="display: block;font-size: small;" [disabled]="state==0 || state==2">Change setting</button>
 </div>

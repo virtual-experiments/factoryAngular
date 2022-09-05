@@ -12,5 +12,5 @@
     <p>Concentration= {{this.Concentration}}</p>
     <p>Response= {{this.Response}}</p>
     <p style="color: red;" [hidden]="!experimentRunning">Experiment Running</p>
-    <button routerLink="/expadder" style="display: block;" [disabled]="experimentRunning">Experiment</button>
+    <button routerLink="/expadder" style="display: block;" [disabled]="experimentRunning || state==0 || state==2">Experiment</button>
 </div>

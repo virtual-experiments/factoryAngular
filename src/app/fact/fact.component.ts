@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit,OnDestroy, Input,OnChanges, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {ProductionPlantService} from '../production-plant.service'
 
@@ -9,6 +9,7 @@ import {ProductionPlantService} from '../production-plant.service'
 })
 export class FactComponent implements OnInit {
 
+  @Input() state:any;
   subscription:Subscription | undefined;
   delayPeriod=false;
   constructor(private ppserice:ProductionPlantService) { }
@@ -22,6 +23,12 @@ export class FactComponent implements OnInit {
         this.delayPeriod=false;
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(this.state==2){
+      this.delayPeriod=false;
+    }
   }
    getTemp(){
     return this.ppserice.temperature;

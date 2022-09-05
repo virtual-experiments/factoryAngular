@@ -23,6 +23,11 @@ export class ExperimentsService {
     return this.tankCapacity -this.Experiments[nrTanks-1].length;
   }
 
+  reset(){
+    this.Experiments=[];
+    this.runningExps=[];
+    this.messageSource.next(this.runningExps);
+  }
   //tanknr is 0 or 1 indicating it is a new tank
   //precondition: tank capacity is not violated.
   addNewExps(exps:{tanknr:string,temp:number,time:number,conc:number}[]){

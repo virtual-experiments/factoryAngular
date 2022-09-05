@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy,AfterViewInit } from '@angular/core';
+import { Component, OnInit,OnDestroy,AfterViewInit, Input,OnChanges, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {ExperimentsService} from '../experiments.service';
 
@@ -9,6 +9,8 @@ import {ExperimentsService} from '../experiments.service';
 })
 export class PilotComponent implements OnInit {
   
+  @Input() state:any;
+
   RunNr=0;
   RunNrSameTank=0;
   TankNr=0;
@@ -30,6 +32,22 @@ export class PilotComponent implements OnInit {
     });
   }
 
+  //TRY TO RELOAD THE APP WHEN RESET IS PRESSED.
+  //state 2 is reached when Stop is pressed.
+  ngOnChanges(changes: SimpleChanges) {
+    if(this.state==2){
+      console.log("pilot reset...")
+      console.log(changes);
+      this.RunNr=0;
+      this.RunNrSameTank=0;
+      this.TankNr=0;
+      this.Temperature=0;
+      this.Time=0;
+      this.Concentration=0;
+      this.Response=0;
+    }
+  }
+  //What should happen if stop button should stop the experiments????
   showExps(message:any){
       const timeinterval = 2000;
       this.experimentRunning=true;
@@ -48,7 +66,7 @@ export class PilotComponent implements OnInit {
             that.experimentRunning=false;
           }
         },
-        timeinterval*i,this,message,i);
+        timeinterval*(i+1),this,message,i);
 
         i+=1;
       }

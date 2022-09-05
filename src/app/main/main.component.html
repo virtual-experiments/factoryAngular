@@ -1,10 +1,10 @@
 <app-progressbar></app-progressbar>
 <div style="display: grid;grid-template-columns: 50% 50%;">
-  <app-pilot></app-pilot>
-  <app-fact></app-fact>
+  <app-pilot [state]="state"></app-pilot>
+  <app-fact [state]="state"></app-fact>
 </div>
 <div style="display: grid;grid-template-columns: auto auto auto; width: 30%; margin-left: 33%;">
-  <button style="color: red;">Stop</button>
-  <button routerLink="/history">History</button>
-  <button>Net Extra Profit</button>
+  <button  [ngStyle]="{'color':this.state==1?red:black}" (click)="stateChange()">{{this.stateButton}}</button>
+  <button routerLink="/history" [disabled]="this.state==0">History</button>
+  <button [disabled]="this.state==0">Net Extra Profit</button>
 </div>
