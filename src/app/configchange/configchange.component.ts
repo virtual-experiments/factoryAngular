@@ -20,9 +20,9 @@ export class ConfigchangeComponent implements OnInit {
   constructor(private ppserice:ProductionPlantService) { }
 
   ngOnInit(): void {
-    this.Temp= this.MinTemp;
-    this.Time= this.MinTime;
-    this.Conc = this.MinConc;
+    this.Temp= this.ppserice.temperature;
+    this.Time= this.ppserice.time;
+    this.Conc = this.ppserice.concentration;
   }
 
   changeSetting(){

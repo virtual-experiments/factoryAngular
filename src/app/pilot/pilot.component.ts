@@ -26,29 +26,29 @@ export class PilotComponent implements OnInit {
   ngOnInit(): void {
     this.subscription= this.ExperimentService.currentMessage.subscribe(message =>{
       //console.log("message receiveded pilot");
-      if(message.length!=0){
-        this.showExps(message);
+      if(message==this.ExperimentService.default){
+        this.experimentRunning=false;
+        const l =this.ExperimentService.performedExps.length;
+        if(l!=0){
+          message= this.ExperimentService.performedExps[l-1];
+        }
       }
+      else{
+        this.experimentRunning=true;
+        console.log("plot experiment received");
+      }
+      this.RunNr=message.runnr;
+      this.RunNrSameTank=message.runnrTank;
+      this.TankNr=message.tanknr;
+      this.Temperature=message.temp;
+      this.Time=message.time;
+      this.Concentration=message.conc;
+      this.Response=message.response;
     });
   }
 
-  //TRY TO RELOAD THE APP WHEN RESET IS PRESSED.
-  //state 2 is reached when Stop is pressed.
-  ngOnChanges(changes: SimpleChanges) {
-    if(this.state==2){
-      console.log("pilot reset...")
-      console.log(changes);
-      this.RunNr=0;
-      this.RunNrSameTank=0;
-      this.TankNr=0;
-      this.Temperature=0;
-      this.Time=0;
-      this.Concentration=0;
-      this.Response=0;
-    }
-  }
   //What should happen if stop button should stop the experiments????
-  showExps(message:any){
+  /**showExps(message:any){
       const timeinterval = 2000;
       this.experimentRunning=true;
       let i =0;
@@ -70,7 +70,7 @@ export class PilotComponent implements OnInit {
 
         i+=1;
       }
-  }
+  }**/
   ngAfterViewInit():void{
   
   }

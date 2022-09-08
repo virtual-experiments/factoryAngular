@@ -1,1 +1,53 @@
-<p>results works!</p>
+<p>Profit</p>
+<table>
+    <tr>
+        <td>From week</td>
+        <td> To week</td>
+        <td>Temp.(deg)</td>
+        <td>Time (min)</td>
+        <td>Conc. (%)</td>
+        <td>Response (€/w)</td>
+        <td>Extra profit (€)</td>
+    </tr>
+    <tr *ngFor="let h of getHistory()">
+        <td>{{h.beginweek}}</td>
+        <td>{{h.endweek}}</td>
+        <td>{{h.temp}}</td>
+        <td>{{h.time}}</td>
+        <td>{{h.conc}}</td>
+        <td>{{h.resp}}</td>
+        <td>{{h.extraprofit}}</td>
+    </tr>
+    <tr [hidden]="noChange">
+        <td>{{getLastWeek()}}</td>
+        <td>{{getMaxWeek()}}</td>
+        <td>{{getTemp()}}</td>
+        <td>{{getTime()}}</td>
+        <td>{{getConc()}}</td>
+        <td>{{ getResp()}}</td>
+        <td>{{getExtraProfit()}}</td>
+    </tr>
+</table>
+<hr>
+<p>Costs</p>
+<table>
+    <tr>
+        <td>Init Costs (€)</td>
+        <td>Cost of {{getTotalExps()}} experiments (€)</td>
+        <td>Cost of {{NbProcessChange()}} process changes (€)</td>
+    </tr>
+    <tr>
+        <td>{{getInitCost()}}</td>
+        <td>{{getTotalExpsCost()}}</td>
+        <td>{{ProcessChangeCost()}}</td>
+    </tr>
+</table>
+<p>Net Extra Profit</p>
+<table>
+    <tr>
+        <td>Total Extra Profit (€)</td>
+        <td>Total Costs (€)</td>
+        <td>Net Extra Profit (€)</td>
+    </tr>
+
+</table>
