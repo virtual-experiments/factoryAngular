@@ -30,23 +30,23 @@ export class ResultsComponent implements OnInit {
   }
 
   getTotalExps(){
-    this.ppserice.getTotalExperiments();
+    return this.ppserice.getTotalExperiments();
   }
 
   getMaxWeek(){
-    this.ppserice.MaxWeek;
+    return this.ppserice.MaxWeek;
   }
 
   getTemp(){
-    this.ppserice.temperature;
+    return this.ppserice.temperature;
   }
 
   getTime(){
-    this.ppserice.time;
+    return this.ppserice.time;
   }
 
   getConc(){
-    this.ppserice.concentration;
+    return this.ppserice.concentration;
   }
 
   getResp(){
@@ -72,7 +72,24 @@ export class ResultsComponent implements OnInit {
   }
 
   ProcessChangeCost(){
-    this.NbProcessChange()*this.ppserice.processChangeCost;
+    return this.NbProcessChange()*this.ppserice.processChangeCost;
   }
 
+  getTotExtraProf(){
+    //CHenk calculation....
+    //end week 40?
+    let sum =0;
+    for(let h of this.ppserice.history){
+      sum+=h.extraprofit;
+    }
+    if(!this.noChange){
+      const prof = this.getExtraProfit();
+      if(prof!=""){
+        sum+=prof;
+      }
+    }
+    return sum;
+  }
+
+  
 }

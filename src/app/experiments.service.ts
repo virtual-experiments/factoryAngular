@@ -26,7 +26,7 @@ export class ExperimentsService {
   
   experimenttimeinterval = 2000;
 
-  experimentCost = 250;
+  experimentCost = 226.89;
   constructor() { }
 
   getLastTankCapacity(){
@@ -91,7 +91,7 @@ export class ExperimentsService {
   //tanknr is 0 or 1 indicating it is a new tank
   //precondition: tank capacity is not violated.
   addNewExps(exps:{tanknr:string,temp:number,time:number,conc:number}[]){
-    if(exps==[]){
+    if(exps.length==0){
       return;
     }
     let runnr = this.getRunnr();
@@ -175,7 +175,7 @@ export class ExperimentsService {
       let e =0;
       let exps = this.Experiments[t].length;
       while(e<exps){
-        table.push({runnr:runnr,tanknr:t+1,runnrtank:e+1,temp:this.Experiments[t][e].response,time:this.Experiments[t][e].time,conc:this.Experiments[t][e].conc,resp:this.Experiments[t][e].response});
+        table.push({runnr:runnr,tanknr:t+1,runnrtank:e+1,temp:this.Experiments[t][e].temp,time:this.Experiments[t][e].time,conc:this.Experiments[t][e].conc,resp:this.Experiments[t][e].response});
         e+=1;
         runnr+=1;
       }

@@ -25,11 +25,6 @@ export class FactComponent implements OnInit {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if(this.state==2){
-      this.delayPeriod=false;
-    }
-  }
    getTemp(){
     return this.ppserice.temperature;
    }

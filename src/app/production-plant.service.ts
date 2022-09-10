@@ -16,7 +16,7 @@ export class ProductionPlantService {
   newSettingDelay=6;
   delayedWeek=0;
   week=0;
-  MaxWeek=40;
+  MaxWeek=90;
   //in milliseconds
   TimePerWeek = 10000;
   timer:any;
@@ -50,10 +50,6 @@ export class ProductionPlantService {
   changeSetting(setting:{temp:number,time:number,conc:number}){
     //TO DO: CALCULATE RESPONSE...
     if(this.week<this.MaxWeek){
-      this.temperature=setting.temp;
-      this.time=setting.time;
-      this.concentration=setting.conc;
-      this.response = this.Response(setting.temp,setting.time,setting.conc);
       const l = this.history.length;
       let beginweek = 1;
       if(l>0){
@@ -63,6 +59,10 @@ export class ProductionPlantService {
       const extrapr= this.Profit(beginweek,this.week,this.response);
       this.history.push({temp:this.temperature,time:this.time,conc:this.concentration,endweek:this.week,beginweek:beginweek,resp:this.response,extraprofit:extrapr});
       
+      this.temperature=setting.temp;
+      this.time=setting.time;
+      this.concentration=setting.conc;
+      this.response = this.Response(setting.temp,setting.time,setting.conc);
       this.delayedWeek= this.week+this.newSettingDelay;
       this.messageSource.next(1);
     }
@@ -138,5 +138,4 @@ Profit(beginChangeTime:number, endChangeTime:number, resp:number) {
   getLastExtraProfit(){
     return this.Profit(this.getLastweekChange(),this.MaxWeek,this.response);
   }
-  
 }

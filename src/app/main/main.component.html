@@ -6,5 +6,5 @@
 <div style="display: grid;grid-template-columns: auto auto auto; width: 30%; margin-left: 33%;">
   <button  [ngStyle]="{'color':this.state==1?red:black}" (click)="stateChange()">{{this.stateButton}}</button>
   <button routerLink="/history" [disabled]="this.state==0">History</button>
-  <button [disabled]="this.state==0">Net Extra Profit</button>
+  <button [disabled]="this.state==0" routerLink="/results">Net Extra Profit</button>
 </div>

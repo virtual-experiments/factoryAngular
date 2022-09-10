@@ -1,4 +1,4 @@
-<p>Profit</p>
+<b>Profit</b>
 <table>
     <tr>
         <td>From week</td>
@@ -29,7 +29,7 @@
     </tr>
 </table>
 <hr>
-<p>Costs</p>
+<b>Costs</b>
 <table>
     <tr>
         <td>Init Costs (€)</td>
@@ -42,12 +42,18 @@
         <td>{{ProcessChangeCost()}}</td>
     </tr>
 </table>
-<p>Net Extra Profit</p>
+<hr>
+<b>Net Extra Profit</b>
 <table>
     <tr>
         <td>Total Extra Profit (€)</td>
         <td>Total Costs (€)</td>
         <td>Net Extra Profit (€)</td>
+    </tr>
+    <tr>
+        <td>{{getTotExtraProf()}}</td>
+        <td>{{getTotalExpsCost()}}</td>
+        <td>{{getTotExtraProf()-getTotalExpsCost()}}</td>
     </tr>
 
 </table>
