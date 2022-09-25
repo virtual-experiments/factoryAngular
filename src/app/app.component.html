@@ -6,7 +6,7 @@
 
   <button mat-button [matMenuTriggerFor]="belowMenu">Help</button>
   <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>About</button>
+    <button mat-menu-item (click)="openAboutDialog()">About</button>
     <button mat-menu-item>Applet Help</button>
   </mat-menu>
 

@@ -15,6 +15,8 @@ import { HistoryComponent } from './history/history.component';
 import {MatMenuModule} from '@angular/material/menu'; 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {MatSliderModule} from '@angular/material/slider';
     ConfigchangeComponent,
     ResultsComponent,
     MainComponent,
-    HistoryComponent
+    HistoryComponent,
+    AboutDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatMenuModule,
     MatProgressBarModule,
     MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
