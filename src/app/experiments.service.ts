@@ -112,7 +112,7 @@ export class ExperimentsService {
       let error = this.NextGaussian(1.0, 0.04);
       let phase = this.NextGaussian(0.0, 10.0);
       let response = this.Response(e.temp,e.time,e.conc,block,error,phase);
-      if(e.tanknr=="1"){
+      if(e.tanknr=="1" || e.tanknr=="1.0"){
         lasttank+=1;
         this.Experiments.push([]);
         runnrtank=1;
