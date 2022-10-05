@@ -14,9 +14,11 @@ export class ProductionPlantService {
   InitResp = 4537.8;
   response =this.InitResp;
   newSettingDelay=6;
-  delayedWeek=0;
+  //avoid the first condition when the program just begins.
+  delayedWeek=-1;
   week=0;
-  MaxWeek=90;
+  MaxWeek=40;
+  MaxWeekCalac = 90;
   //in milliseconds
   TimePerWeek = 10000;
   timer:any;
@@ -33,6 +35,7 @@ export class ProductionPlantService {
   startTimer(){
     this.isRunning=true;
     this.started=true;
+    //this.increaseWeek();
     this.timer= setInterval((that:ProductionPlantService)=>{
       if(that.week<that.MaxWeek){
         that.increaseWeek();
@@ -51,12 +54,17 @@ export class ProductionPlantService {
     //TO DO: CALCULATE RESPONSE...
     if(this.week<this.MaxWeek){
       const l = this.history.length;
-      let beginweek = 1;
+      let beginweek = 0;
+      let extrapr=0;
       if(l>0){
         beginweek = this.history[l-1].endweek+1;
+        extrapr= this.Profit(beginweek,this.week,this.response);
+      }
+      else{
+        extrapr= this.Profit(beginweek,1,this.response);
       }
       //TO DO : CLACULATE THIS
-      const extrapr= this.Profit(beginweek,this.week,this.response);
+      
       this.history.push({temp:this.temperature,time:this.time,conc:this.concentration,endweek:this.week,beginweek:beginweek,resp:this.response,extraprofit:extrapr});
       
       this.temperature=setting.temp;
@@ -64,6 +72,9 @@ export class ProductionPlantService {
       this.concentration=setting.conc;
       this.response = this.Response(setting.temp,setting.time,setting.conc);
       this.delayedWeek= this.week+this.newSettingDelay;
+      if(this.delayedWeek>this.MaxWeek){
+        this.delayedWeek=this.MaxWeek;
+      }
       this.messageSource.next(1);
     }
   }
@@ -136,6 +147,6 @@ Profit(beginChangeTime:number, endChangeTime:number, resp:number) {
 
 
   getLastExtraProfit(){
-    return this.Profit(this.getLastweekChange(),this.MaxWeek,this.response);
+    return this.Profit(this.getLastweekChange(),this.MaxWeekCalac,this.response);
   }
 }

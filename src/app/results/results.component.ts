@@ -34,7 +34,7 @@ export class ResultsComponent implements OnInit {
   }
 
   getMaxWeek(){
-    return this.ppserice.MaxWeek;
+    return this.ppserice.MaxWeekCalac;
   }
 
   getTemp(){

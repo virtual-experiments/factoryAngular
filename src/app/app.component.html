@@ -1,13 +1,13 @@
 <div class="toolbar" style="height: fit-content;">
   <button mat-button [matMenuTriggerFor]="aboveMenu">File</button>
   <mat-menu #aboveMenu="matMenu" yPosition="above">
-    <button mat-menu-item>Exit</button>
+    <button mat-menu-item style="font-size: small;">Exit</button>
   </mat-menu>
 
   <button mat-button [matMenuTriggerFor]="belowMenu">Help</button>
-  <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item (click)="openAboutDialog()">About</button>
-    <button mat-menu-item>Applet Help</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below" >
+    <button mat-menu-item (click)="openAboutDialog()" style="font-size: small;">About</button>
+    <button mat-menu-item style="font-size: small;"><a style="text-decoration: none;color: black;" href="https://www.kuleuven.ac.be/ucs/java/virtex/Introhelp.html" target="_blank" rel="noopener noreferrer">Applet Help</a></button>
   </mat-menu>
 
 </div>
