@@ -1,0 +1,27 @@
+<div  class= "mainframe">
+    <p style="color: red; font-size: medium;">Changes will be applied only before production starts</p>
+    <div style="font-size: x-small;margin-top: 1%;" >
+        <div>
+            <p class="header"> End week: </p>
+            <div class="numpicker" >
+                <label class="slider">{{MinEndWeek}}</label>
+                <mat-slider  thumbLabel [min]="MinEndWeek" [max]="MaxEndWeek" [step]="5" [(value)]="endWeek"></mat-slider>
+                <label>{{MaxEndWeek}}</label>
+            </div>
+        </div>
+        <div>
+            <p class="header"> Week duration(seconds): </p>
+            <div class="numpicker">
+                <label class="slider">{{MinWeekDuration}}</label>
+                <mat-slider thumbLabel [min]="MinWeekDuration" [max]="MaxWeekDuration" [step]="10" [(value)]="weekDuration"></mat-slider>
+                <label>{{MaxWeekDuration}}</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 2%;">
+        <button routerLink="/main">Cancel</button>
+        <button routerLink="/main" (click)="changeSetting()">OK</button>
+    </div>
+</div>

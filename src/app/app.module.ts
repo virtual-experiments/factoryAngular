@@ -17,6 +17,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AboutDialogComponent } from './about-dialog/about-dialog.component';
+import { TimeConfigComponent } from './time-config/time-config.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AboutDialogComponent } from './about-dialog/about-dialog.component';
     ResultsComponent,
     MainComponent,
     HistoryComponent,
-    AboutDialogComponent
+    AboutDialogComponent,
+    TimeConfigComponent
   ],
   imports: [
     BrowserModule,

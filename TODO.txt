@@ -7,3 +7,8 @@
 -new features??
 
 -comparing with the code
+-exit
+-removing applet help
+-removing new tank from change setting
+-adding possible modification for the time per week
+-adding possiblilty to modify the end week 

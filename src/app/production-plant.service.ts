@@ -18,9 +18,9 @@ export class ProductionPlantService {
   delayedWeek=-1;
   week=0;
   MaxWeek=40;
-  MaxWeekCalac = 90;
+  MaxWeekCalac = this.MaxWeek;
   //in milliseconds
-  TimePerWeek = 10000;
+  TimePerWeek = 60000;
   timer:any;
   isRunning =false;
   started =false;
@@ -31,6 +31,11 @@ export class ProductionPlantService {
   constructor(private ExperimentService:ExperimentsService) {
     
    }
+
+  setMaxWeek(maxweek:number){
+    this.MaxWeek=maxweek;
+    this.MaxWeekCalac=maxweek;
+  }
 
   startTimer(){
     this.isRunning=true;

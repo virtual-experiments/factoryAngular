@@ -17,6 +17,11 @@ export class AppComponent {
     this.dialog.open(AboutDialogComponent,{width: '400px',height:'300px'});
   }
 
+  click(){
+    window.close();
+  }
+  
+
 }
 
 

@@ -1,0 +1,21 @@
+.mainframe{
+    background-color: aquamarine;
+    width: 40%;
+    margin-left: 2%;
+    margin-top: 3%;
+    border-width: 1px;
+    border-style: solid;
+    height: 90%;
+    font-size: small;
+    padding: 1%;
+}
+
+.numpicker{
+    display: inline;
+}
+
+.header{
+    
+    font-size: small;
+    margin: 0%;
+}

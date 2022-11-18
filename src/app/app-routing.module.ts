@@ -5,6 +5,7 @@ import { ExpadderComponent } from './expadder/expadder.component';
 import { HistoryComponent } from './history/history.component';
 import { MainComponent } from './main/main.component';
 import { ResultsComponent } from './results/results.component';
+import { TimeConfigComponent } from './time-config/time-config.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'configchange', component: ConfigchangeComponent },
   { path: 'results', component: ResultsComponent },
   { path: 'history', component: HistoryComponent },
+  { path: 'timings', component: TimeConfigComponent },
 ];
 
 @NgModule({
